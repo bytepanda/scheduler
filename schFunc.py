@@ -39,14 +39,15 @@ def chew(buggy):
    start+=13
    end+=14
    hunters+=1
-   
-   
-   
+
+
+
 def parse(headcrabs):
  global gravity, ammunition
  vance=re.sub(r'[Gg]roup [0-9]','', str(headcrabs), re.M|re.I)
  vance=vance.replace(' ','')
  gman=vance.replace('\n','')
+ gman=gman.replace('\t','')
  while len(gordon)!=hevSuit:
       freeman = []
       zeroPoint=gravity+gun
@@ -56,7 +57,8 @@ def parse(headcrabs):
       ammunition+=1
       antlions.append(freeman)
       ammunition=0
+      print gravity
  chew(gordon)
-   
-  
-  
+
+
+
