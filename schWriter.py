@@ -28,7 +28,7 @@ def writeSch(input,output):
  add=0
  dayIndex=0
  for lines in range(14):
- 
+
   if add==2:
     dayIndex+=1
     add=0
@@ -39,9 +39,11 @@ def writeSch(input,output):
     pass
   ext = l[lines]
   mp=ext.replace(u'\r\n', u'')
+  mp=mp.replace(u'\n', u'')
+  mp=mp.replace(u'\t', u'')
   sch.set(sec,str(time[add]),mp)
   add+=1
- sch.write(data) 
+ sch.write(data)
  data.close()
 
 
