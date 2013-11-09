@@ -1,5 +1,5 @@
 import Tkinter as tki,tkMessageBox as tbox
-import hl2
+import schFunc
 
 from ScrolledText import ScrolledText
 
@@ -15,7 +15,7 @@ class App(object):
 
 	
 	def onok():
-	    hl2.parse(self.txt.get("1.0","end"))
+	    schFunc.parse(self.txt.get("1.0","end"))
             tbox.showinfo("Done","Schedules have been parsed and converted to INI files")
 
 
