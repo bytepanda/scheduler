@@ -1,4 +1,4 @@
-import re,schwriter as sch,os
+import re,schWriter as sch,os
 
 
 
