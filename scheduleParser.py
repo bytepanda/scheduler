@@ -1,4 +1,4 @@
-import Tkinter as tki,tkMessageBox as tbox
+import Tkinter as tki,tkMessageBox as tbox, tkFileDialog as tdog
 import schFunc
 
 from ScrolledText import ScrolledText
@@ -13,10 +13,13 @@ class App(object):
         self.txt['font'] = ('consolas', '12')
         self.txt.pack(expand=True, fill='both')
 
-	
+
 	def onok():
-	    schFunc.parse(self.txt.get("1.0","end"))
-            tbox.showinfo("Done","Schedules have been parsed and converted to INI files")
+
+          dirname = tdog.askdirectory(parent=self.root,initialdir="/",title='Please select a directory')
+          print dirname
+          schFunc.parse(self.txt.get("1.0","end"),dirname)
+          tbox.showinfo("Done","Schedules have been parsed and converted to INI files")
 
 
 	tki.Button(self.root, text='Parse Schedules', command=onok).pack()
