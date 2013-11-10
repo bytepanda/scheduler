@@ -3,9 +3,9 @@
 
 import zipfile,ConfigParser as c,codecs,os
 
-dummy='c:\\dummy'
+
 sch=c.ConfigParser()
-root='c:\\scheduler'
+
 j=os.path.join
 
 getYear=2013
@@ -48,6 +48,7 @@ def writeSch(input,output):
 
 
 
+# This function is unused, this will add schedules to a zip file. It requires some extra manifests.
 def compress(sarDir,schFile):
    name=os.path.split(schFile)[1]
    zipath=os.path.join(sarDir,'schedule.sar')
