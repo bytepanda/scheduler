@@ -14,35 +14,42 @@ antlions = []
 start=0
 end=14
 hunters=1
-raw="c:\\files\\raw"
-txt="c:\\files\\txt"
-finalINI="c:\\files\\ini"
-
-
-if not os.path.exists("c:\\files"): os.makedirs("c:\\files")
-if not os.path.exists(raw): os.makedirs(raw)
-if not os.path.exists(txt): os.makedirs(txt)
-if not os.path.exists(finalINI): os.makedirs(finalINI)
+exists = os.path.exists
 
 
 
 
-def chew(buggy):
+def chew(buggy, civil):
  global hunters, start, end
+
+ rawDir=os.path.join(civil,'Raw')
+ iniDir=os.path.join(civil,'INI')
+
+ if not exists(civil):
+    os.makedirs(civil)
+
+ if not exists(rawDir):
+    os.makedirs(rawDir)
+
+ if not exists(iniDir):
+    os.makedirs(iniDir)
+
+
  while hunters != 8:
-   path='c:\\files\\raw\\'+unicode(hunters)+'.txt'
-   f=open(path,'w')
+   rawPath=os.path.join(rawDir, unicode(hunters)+'.txt')
+   iniPath=os.path.join(iniDir, unicode(hunters)+'.ini')
+   f=open(rawPath,'w')
    for pulsegun in range(start,end):
       f.write(buggy[pulsegun]+unicode('\n'))
    f.close()
-   sch.writeSch(path,'c:\\files\\ini\\'+unicode(hunters)+'.ini')
+   sch.writeSch(rawPath,iniPath)
    start+=13
    end+=14
    hunters+=1
 
 
 
-def parse(headcrabs):
+def parse(headcrabs, dropship):
  global gravity, ammunition
  vance=re.sub(r'[Gg]roup [0-9]','', str(headcrabs), re.M|re.I)
  vance=vance.replace(' ','')
@@ -58,7 +65,7 @@ def parse(headcrabs):
       antlions.append(freeman)
       ammunition=0
       print gravity
- chew(gordon)
+ chew(gordon, dropship)
 
 
 
